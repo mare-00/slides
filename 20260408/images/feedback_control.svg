@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 200" width="780" height="200" font-family="sans-serif" font-size="13">
+
+  <!-- 目標値 -->
+  <rect x="10" y="75" width="110" height="50" rx="6" fill="#e8f4fd" stroke="#4a90d9" stroke-width="1.5"/>
+  <text x="65" y="97" text-anchor="middle" font-weight="bold">目標値</text>
+  <text x="65" y="114" text-anchor="middle" font-size="11" fill="#555">（理想のキャリア）</text>
+
+  <!-- 矢印: 目標値 → 比較点 -->
+  <line x1="120" y1="100" x2="158" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 比較点（加算結合点） -->
+  <circle cx="170" cy="100" r="14" fill="#fff" stroke="#333" stroke-width="1.5"/>
+  <text x="170" y="96" text-anchor="middle" font-size="12">＋</text>
+  <text x="170" y="110" text-anchor="middle" font-size="12">－</text>
+
+  <!-- 矢印: 比較点 → 制御器 (偏差e) -->
+  <line x1="184" y1="100" x2="232" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="208" y="93" text-anchor="middle" font-size="11" fill="#555">偏差 e</text>
+
+  <!-- 制御器 -->
+  <rect x="232" y="75" width="120" height="50" rx="6" fill="#e8f4fd" stroke="#4a90d9" stroke-width="1.5"/>
+  <text x="292" y="97" text-anchor="middle" font-weight="bold">制御器</text>
+  <text x="292" y="114" text-anchor="middle" font-size="11" fill="#555">（行動・意思決定）</text>
+
+  <!-- 矢印: 制御器 → プラント -->
+  <line x1="352" y1="100" x2="400" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- プラント -->
+  <rect x="400" y="75" width="110" height="50" rx="6" fill="#e8f4fd" stroke="#4a90d9" stroke-width="1.5"/>
+  <text x="455" y="97" text-anchor="middle" font-weight="bold">プラント</text>
+  <text x="455" y="114" text-anchor="middle" font-size="11" fill="#555">（自分自身）</text>
+
+  <!-- 矢印: プラント → 出力 -->
+  <line x1="510" y1="100" x2="558" y2="100" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 出力 -->
+  <rect x="558" y="75" width="110" height="50" rx="6" fill="#e8f4fd" stroke="#4a90d9" stroke-width="1.5"/>
+  <text x="613" y="97" text-anchor="middle" font-weight="bold">出力</text>
+  <text x="613" y="114" text-anchor="middle" font-size="11" fill="#555">（行動・実績）</text>
+
+  <!-- フィードバック経路: 出力 → 下 → 左 → 比較点下 -->
+  <polyline points="613,125 613,165 170,165 170,114" fill="none" stroke="#e05c00" stroke-width="1.5" marker-end="url(#arrow-orange)"/>
+
+  <!-- フィードバックラベル -->
+  <rect x="350" y="148" width="150" height="28" rx="4" fill="#fff3e0" stroke="#e05c00" stroke-width="1"/>
+  <text x="425" y="167" text-anchor="middle" font-size="12" fill="#e05c00" font-weight="bold">フィードバック</text>
+  <text x="425" y="158" text-anchor="middle" font-size="10" fill="#888">（他者評価・自己観察）</text>
+
+  <!-- arrowhead markers -->
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#333"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#e05c00"/>
+    </marker>
+  </defs>
+</svg>
