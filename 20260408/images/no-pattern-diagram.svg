@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="520" viewBox="0 0 860 520" font-family="sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+    <marker id="arr-r" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#C62828"/>
+    </marker>
+  </defs>
+
+  <!-- ConditionService (top) -->
+  <rect x="300" y="15" width="260" height="70" rx="8" fill="#FFF8E1" stroke="#F57F17" stroke-width="2"/>
+  <text x="430" y="38" text-anchor="middle" fill="#E65100" font-size="13" font-weight="bold">ConditionService</text>
+  <text x="430" y="56" text-anchor="middle" fill="#555" font-size="11">責務: 条件値の提供</text>
+  <text x="430" y="72" text-anchor="middle" fill="#BF360C" font-size="11">conditionA / conditionB を返す</text>
+
+  <!-- ConditionService → Page -->
+  <path d="M430,85 V128" stroke="#C62828" stroke-width="1.5" fill="none" marker-end="url(#arr-r)"/>
+  <text x="455" y="112" fill="#C62828" font-size="10">直接呼び出し</text>
+
+  <!-- Page (monolithic) -->
+  <rect x="60" y="130" width="740" height="320" rx="10" fill="#FFEBEE" stroke="#C62828" stroke-width="2.5"/>
+  <text x="430" y="158" text-anchor="middle" fill="#B71C1C" font-size="14" font-weight="bold">ScreenPage（全ロジックを内包）</text>
+
+  <!-- Logic blocks inside Page -->
+  <!-- conditionA/B 取得 -->
+  <rect x="90" y="172" width="680" height="30" rx="4" fill="#FFCDD2"/>
+  <text x="430" y="191" text-anchor="middle" fill="#B71C1C" font-size="11" font-weight="bold">conditionA / conditionB を取得・保持</text>
+
+  <!-- Title logic -->
+  <rect x="90" y="215" width="205" height="90" rx="6" fill="#EF9A9A" stroke="#E53935" stroke-width="1"/>
+  <text x="193" y="234" text-anchor="middle" fill="#7F0000" font-size="11" font-weight="bold">タイトルのロジック</text>
+  <text x="193" y="252" text-anchor="middle" fill="#7F0000" font-size="10">conditionA → タイトルA</text>
+  <text x="193" y="267" text-anchor="middle" fill="#7F0000" font-size="10">それ以外 → タイトルB</text>
+  <rect x="100" y="278" width="185" height="20" rx="3" fill="#EF5350"/>
+  <text x="193" y="292" text-anchor="middle" fill="white" font-size="10">テスト: Page 全体を mount 必要</text>
+
+  <!-- Button logic -->
+  <rect x="313" y="215" width="255" height="115" rx="6" fill="#EF9A9A" stroke="#E53935" stroke-width="1"/>
+  <text x="440" y="234" text-anchor="middle" fill="#7F0000" font-size="11" font-weight="bold">ボタンのロジック</text>
+  <text x="440" y="252" text-anchor="middle" fill="#7F0000" font-size="10">conditionA → 活性 / 非活性</text>
+  <text x="440" y="267" text-anchor="middle" fill="#7F0000" font-size="10">conditionB → A / B 画面遷移</text>
+  <rect x="323" y="278" width="235" height="20" rx="3" fill="#EF5350"/>
+  <text x="440" y="292" text-anchor="middle" fill="white" font-size="10">テスト: Page 全体を mount 必要</text>
+  <rect x="323" y="303" width="235" height="20" rx="3" fill="#E53935"/>
+  <text x="440" y="317" text-anchor="middle" fill="white" font-size="10">遷移ロジックも Page に混在</text>
+
+  <!-- Modal logic -->
+  <rect x="586" y="215" width="185" height="90" rx="6" fill="#CE93D8" stroke="#7B1FA2" stroke-width="1"/>
+  <text x="679" y="234" text-anchor="middle" fill="#4A148C" font-size="11" font-weight="bold">モーダルのロジック</text>
+  <text x="679" y="252" text-anchor="middle" fill="#4A148C" font-size="10">onMounted 時に表示</text>
+  <text x="679" y="267" text-anchor="middle" fill="#4A148C" font-size="10">表示状態を Page で管理</text>
+  <rect x="596" y="278" width="165" height="20" rx="3" fill="#7B1FA2"/>
+  <text x="679" y="292" text-anchor="middle" fill="white" font-size="10">テスト: Page 全体を mount 必要</text>
+
+  <!-- Warning -->
+  <rect x="90" y="335" width="680" height="40" rx="6" fill="#FF8A80" stroke="#C62828" stroke-width="1"/>
+  <text x="430" y="354" text-anchor="middle" fill="#7F0000" font-size="12" font-weight="bold">⚠ 全責務が Page に集中 → テスト・保守・再利用が困難</text>
+  <text x="430" y="370" text-anchor="middle" fill="#7F0000" font-size="11">条件追加のたびに Page が肥大化し、影響範囲の特定が難しくなる</text>
+
+  <!-- Legend -->
+  <rect x="60" y="468" width="740" height="38" rx="6" fill="#FAFAFA" stroke="#ddd"/>
+  <line x1="80" y1="487" x2="130" y2="487" stroke="#C62828" stroke-width="1.5" marker-end="url(#arr-r)"/>
+  <text x="138" y="491" fill="#555" font-size="11">直接呼び出し（Page が全て依存）</text>
+  <rect x="420" y="479" width="14" height="14" rx="2" fill="#FFEBEE" stroke="#C62828"/>
+  <text x="440" y="491" fill="#555" font-size="11">Page（全ロジック混在）</text>
+  <rect x="620" y="479" width="14" height="14" rx="2" fill="#EF9A9A" stroke="#E53935"/>
+  <text x="640" y="491" fill="#555" font-size="11">各ロジック（分離なし）</text>
+</svg>
